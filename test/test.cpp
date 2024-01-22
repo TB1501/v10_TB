@@ -33,10 +33,7 @@ namespace all_tests
 
 			std::copy(in, eof, std::back_inserter(v));
 
-			for (auto value : v) 
-			{
-				std::cout << value << " ";
-			}
+			
 
 			Assert::AreEqual(3ull, v.size());
 			Assert::AreEqual(14, v[0]);
@@ -50,11 +47,6 @@ namespace all_tests
 			// TODO: fill vector with incremental values
 
 			std::iota(v.begin(), v.end(), 1);
-
-			// Print the contents of the vector
-			for (auto value : v) {
-				std::cout << value << " ";
-			}
 
 
 			Assert::AreEqual(10ull, v.size());
@@ -97,12 +89,7 @@ namespace all_tests
 				return element * element*element; 
 				});
 
-			// Print the modified vector
-			for (auto value : v) {
-				std::cout << value << " ";
-			}
-
-
+		
 			Assert::AreEqual(3ull, v.size());
 			Assert::AreEqual(1, v[0]);
 			Assert::AreEqual(125, v[1]);
@@ -160,7 +147,7 @@ namespace all_tests
 		TEST_METHOD(test_05b)
 		{
 			std::vector<double> v{ 1.5, 8, -11.23, 0, 1e10, 1e10, 1e10, 0, 99 };
-			auto number_of_invalid = std::count_if(std::begin(v), std::end(v), [](double n) {  return n== 1e10; }); // TODO: 
+			auto number_of_invalid = std::count(std::begin(v), std::end(v), 1e10); // TODO: 
 			Assert::AreEqual(3ll, number_of_invalid);
 		}
 
